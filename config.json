@@ -1,0 +1,5 @@
+{
+    "connectionString": "localhost:27017/registration-login",
+    "apiUrl":  "http://localhost:3000/api",
+    "secret": "App with standard coding principles"
+}

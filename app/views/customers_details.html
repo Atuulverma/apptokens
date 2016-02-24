@@ -1,0 +1,36 @@
+<div ng-init="vm.getCustomer()">
+	<img class="pull-right img-small" src="{{customer.logo_url}}">
+  <div class="clearfix"></div>
+	<h2 class="sub-header">{{vm.customer.firstname}} {{vm.customer.lastname}}</h2>
+	<ul class="list-group">
+		<li class="list-group-item"><strong>Company: </strong> {{vm.customer.company}}</li>
+		<li class="list-group-item"><strong>Email: </strong> {{vm.customer.email}}</li>
+		<li class="list-group-item"><strong>Phone: </strong> {{vm.customer.phone}}</li>
+		<li class="list-group-item"><strong>Street Address: </strong> {{vm.customer.address.street}}</li>
+		<li class="list-group-item"><strong>City: </strong> {{vm.customer.address.city}}</li>
+		<li class="list-group-item"><strong>State: </strong> {{vm.customer.address.state}}</li>
+		<li class="list-group-item"><strong>Zip: </strong> {{vm.customer.address.zip}}</li>
+	</ul>
+  <br>
+
+	<h3>Customer Invoices</h3>
+	<table class="table table-striped" ng-init="vm.getCustomerInvoices()" >
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Service</th>
+							<th>Price</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="invoice in vm.customer_invoices">
+							<td>{{invoice._id}}</td>
+								<td>{{invoice.service}}</td>
+								<td>{{invoice.price}}</td>
+								<td>{{invoice.status}}</td>
+								<td><a href="#/invoices/details/{{invoice._id}}" class="btn btn-primary">Details</a> <a href="#/invoices/edit/{{invoice._id}}" class="btn btn-default">Edit</a> <button id="deleteCustomer" class="btn btn-danger">Delete</a></td>
+						</tr>
+					</tbody>
+				</table>
+</div>
